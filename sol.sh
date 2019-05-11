@@ -1,15 +1,2 @@
 #!/bin/bash
-
-# ART="./ascii"
-# COLS=$(tput cols)
-
-# command -v cat > /dev/null 2>&1 || { printf "\n%s\n" "Cat is required, and it isn't installed."; }
-
-EARTH=$( cat ./ascii/earth.txt )
-
-# printf "%s" $EARTH
-cat $EARTH
-
-# printf "%*s\n" $(((${#EARTH}+$COLS)/2)) "$EARTH"
-
-
+ls -A ./ascii/. | dmenu -l 30 | awk '{print $1}' | xargs -I {}  cat ./ascii/"{}"
